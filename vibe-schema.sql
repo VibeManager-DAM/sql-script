@@ -1,6 +1,3 @@
-CREATE DATABASE Vibe;
-GO
-
 USE Vibe;
 GO
 
@@ -9,7 +6,6 @@ CREATE TABLE ROL (
     id INT PRIMARY KEY IDENTITY(1,1),
     name NVARCHAR(100) NOT NULL
 );
-
 
 CREATE TABLE USERS (
     id INT PRIMARY KEY IDENTITY(1,1),
@@ -28,10 +24,11 @@ CREATE TABLE EVENTS (
     time TIME NOT NULL,
     image VARCHAR(255),
     capacity INT NOT NULL,
-    seats bit NOT NULL,
+    seats BIT NOT NULL,
     num_rows INT,
     num_columns INT,
     id_organizer INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     FOREIGN KEY (id_organizer) REFERENCES USERS(id)
 );
 
@@ -41,8 +38,8 @@ CREATE TABLE SPACES (
     square_meters DECIMAL(10,2) NOT NULL,
     capacity INT NOT NULL,
     address VARCHAR(255) NOT NULL,
-	latitude DECIMAL(10,8) NOT NULL,
-	longitude DECIMAL(11,8) NOT NULL
+    latitude DECIMAL(10,8) NOT NULL,
+    longitude DECIMAL(11,8) NOT NULL
 );
 
 CREATE TABLE RESERVES (
@@ -90,4 +87,3 @@ CREATE TABLE MESSAGES (
     FOREIGN KEY (sender_id) REFERENCES USERS(id),
     FOREIGN KEY (id_chat) REFERENCES CHAT(id)
 );
-
