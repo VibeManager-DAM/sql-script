@@ -9,9 +9,9 @@ VALUES ('Organizador'), ('Normal'), ('Administrador');
 -- Usuarios
 INSERT INTO USERS (fullname, email, password, id_rol)
 VALUES 
-('MarÌa Ortega', 'maria.ortega@vibe.com', 'hashed_maria123', 1), -- Organizador
+('Mar√≠a Ortega', 'maria.ortega@vibe.com', 'hashed_maria123', 1), -- Organizador
 ('Carlos Ruiz', 'carlos.ruiz@vibe.com', 'hashed_carlos123', 2),  -- Normal
-('Elena DÌaz', 'elena.diaz@vibe.com', 'hashed_elena123', 2),     -- Normal
+('Elena D√≠az', 'elena.diaz@vibe.com', 'hashed_elena123', 2),     -- Normal
 ('Admin Vibe', 'admin@vibe.com', 'hashed_admin123', 3);          -- Administrador
 
 -- Espacios
@@ -23,17 +23,19 @@ VALUES
 -- Eventos (por organizador ID 1)
 INSERT INTO EVENTS (title, description, date, time, image, capacity, seats, num_rows, num_columns, id_organizer, price)
 VALUES 
-('Concierto de Primavera', 'Un concierto con m˙sica en vivo.', '2025-06-10', '19:00:00', 'concierto.jpg', 200, 1, 10, 20, 1, 150.00),
-('Feria de TecnologÌa', 'ExposiciÛn de innovaciÛn y tecnologÌa.', '2025-06-15', '10:00:00', 'tecnologia.jpg', 150, 0, NULL, NULL, 1, 100.00);
+('Concierto de Primavera', 'Un concierto con m√∫sica en vivo.', '2025-06-10', '19:00:00', 'concierto.jpg', 200, 1, 10, 20, 1, 150.00),
+('Feria de Tecnolog√≠a', 'Exposici√≥n de innovaci√≥n y tecnolog√≠a.', '2025-06-15', '10:00:00', 'tecnologia.jpg', 150, 0, NULL, NULL, 1, 100.00);
 
--- Reservas de espacio
+-- Reservas de espacio (con fecha actual por defecto)
 INSERT INTO RESERVES (id_event, id_space)
-VALUES (1, 1), (2, 2);
+VALUES 
+(1, 1),
+(2, 2);
 
--- Õtems en espacios
+-- √çtems en espacios
 INSERT INTO ITEMS (name_item, amount, id_space)
 VALUES 
-('MicrÛfonos', 5, 1),
+('Micr√≥fonos', 5, 1),
 ('Sillas', 150, 2);
 
 -- Tickets (usuarios normales a eventos)
@@ -47,4 +49,4 @@ INSERT INTO CHAT (id_user, id_event)
 VALUES (2, 1);
 
 INSERT INTO MESSAGES (context, sender_id, id_chat)
-VALUES ('øA quÈ hora abren las puertas?', 2, 1);
+VALUES ('¬øA qu√© hora abren las puertas?', 2, 1);
