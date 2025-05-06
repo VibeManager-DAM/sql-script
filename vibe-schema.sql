@@ -1,6 +1,9 @@
+-- ======================
+-- CREAR TABLAS DESDE 0
+-- ======================
+
 USE Vibe;
 GO
-
 
 CREATE TABLE ROL (
     id INT PRIMARY KEY IDENTITY(1,1),
@@ -45,6 +48,7 @@ CREATE TABLE SPACES (
 CREATE TABLE RESERVES (
     id_event INT NOT NULL,
     id_space INT NOT NULL,
+    reservation_date DATE NOT NULL DEFAULT GETDATE(),
     PRIMARY KEY (id_event, id_space),
     FOREIGN KEY (id_event) REFERENCES EVENTS(id),
     FOREIGN KEY (id_space) REFERENCES SPACES(id)
